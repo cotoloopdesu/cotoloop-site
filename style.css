@@ -1,0 +1,55 @@
+/* Cotoloop site: 生成りの紙に、ロゴの青と緑。丸ゴシックの見出しと読みやすい本文 */
+:root{
+  --paper:#FBF9F3; --card:#FFFFFF; --ink:#1B2733; --muted:#5B6874; --line:#E4E0D6;
+  --blue:#0B5CB8; --sky:#3FB3F2; --leaf:#2FBF8A; --soft:#EEF5FB;
+  --f-display:"Zen Maru Gothic","Hiragino Maru Gothic ProN","BIZ UDPGothic",sans-serif;
+  --f-body:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --f-en:"Nunito","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{--paper:#11171D;--card:#18212A;--ink:#E6EDF3;--muted:#9AA8B5;--line:#283440;--blue:#7DB8F5;--sky:#5CC4F7;--leaf:#4ED3A1;--soft:#1B2A39;color-scheme:dark}
+  .logo img{background:#FBF9F3;border-radius:12px;padding:6px 10px}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-underline-offset:.2em}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{max-width:880px;margin:0 auto;padding-inline:20px}
+header.site{padding-block:22px 6px}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo img{height:44px;width:auto;display:block}
+nav.top{display:flex;gap:18px;font-size:14px}
+nav.top a{color:var(--muted);text-decoration:none}
+nav.top a:hover{color:var(--blue)}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:1.35;text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,5vw,42px)}
+h2{font-size:22px}
+h3{font-size:17px}
+p{margin:0}
+.hero{padding-block:28px 12px;display:grid;gap:26px;align-items:center}
+@media (min-width:820px){.hero{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;padding-block:56px 40px}}
+.hero figure{margin:0}
+.hero img{width:100%;height:auto;display:block}
+.hero .lead{display:flex;flex-direction:column;gap:14px;max-width:34em}
+.hero .lead p{color:var(--muted);font-size:17px}
+.hero h1{font-size:clamp(28px,3.6vw,38px)}
+.loop{white-space:nowrap;background:linear-gradient(90deg,var(--sky),var(--leaf));-webkit-background-clip:text;background-clip:text;color:transparent}
+.badge{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;font-size:14px;font-weight:700;color:var(--blue);background:var(--soft);border-radius:999px;padding:6px 14px}
+.badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--leaf)}
+main{padding-block:8px 56px}
+.doc{display:flex;flex-direction:column;gap:28px;max-width:44em}
+.doc section{display:flex;flex-direction:column;gap:10px}
+.doc ul{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px}
+.doc .meta{color:var(--muted);font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px}
+.mail{font-family:var(--f-en);font-size:20px;font-weight:700;word-break:break-all}
+.split{display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
+@media (min-width:720px){.split{grid-template-columns:minmax(0,1fr) 200px}}
+.split img{width:200px;max-width:100%;height:auto;justify-self:center}
+.lang{border-top:1px solid var(--line);padding-top:28px}
+footer{border-top:1px solid var(--line);padding-block:22px 36px;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:space-between}
+footer nav{display:flex;gap:18px;flex-wrap:wrap}
+footer a{color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.hero img{animation:rise .7s ease-out both}@keyframes rise{from{transform:translateY(8px);opacity:.6}to{transform:none;opacity:1}}}
